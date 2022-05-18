@@ -30,7 +30,7 @@ class DataSource
         $this->conn = new mysqli($this->host, $this->usuario, $this->password, $this->db);
         $this->conn->set_charset('utf8');
         if ($this->conn->connect_errno) {
-			echo "failed to my connect MySQL:"$mysqli -> connect_error;	
+			echo "failed to my connect MySQL:".$mysqli -> connect_error;	
             return false;
         } else {
             return true;
