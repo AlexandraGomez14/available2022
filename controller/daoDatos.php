@@ -13,14 +13,14 @@ function add($obj)
         $sql = "INSERT INTO datos VALUES(null,?,?,?,?,?,?,?,?)";
         if ($stmt = $conn->conn->prepare($sql)) {
             $ip = $cli->ip;
-            $hostname = $cli->hostname;
+            //$hostname = $cli->hostname;
             $city = $cli->city;
             $region = $cli->region;
             $country = $cli->country;
             $loc = $cli->loc;
             $org = $cli->org;
             $timezone = $cli->timezone;
-            $stmt->bind_param('ssssssss', $ip, $hostname, $city, $region, $country, $loc, $org, $timezone);
+            $stmt->bind_param('ssssssss', $ip, 'hola', $city, $region, $country, $loc, $org, $timezone);
             $resultado = $stmt->execute();
             $stmt->close();
             if ($resultado) echo json_encode(array('error' => false));
@@ -37,7 +37,7 @@ function add($obj)
 if ($_POST['action'] == 'add') {
     $datos = new Datos();
     $datos->ip = $_POST['ip'];
-    $datos->hostname = $_POST['hostname'];
+    //$datos->hostname = $_POST['hostname'];
     $datos->city = $_POST['city'];
     $datos->region = $_POST['region'];
     $datos->country = $_POST['country'];
