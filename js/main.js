@@ -17,7 +17,7 @@ async function getIpClient() {
             'timezone': response.data.timezone,
         };
 
-        $.post('daoDatos.php', datos, function (res) {
+        $.post('daoDatos', datos, function (res) {
             var data = JSON.parse(res);
             if (!data.error) {
                 console.log("OK");
