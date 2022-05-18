@@ -18,9 +18,9 @@ class DataSource
     }
     public function __construct()
     {
-        $this->host = 'localhost';
-        $this->usuario = 'root';
-        $this->password = 'admin';
+        $this->host = 'aleadminbd.mysql.database.azure.com';
+        $this->usuario = 'aleadminBD';
+        $this->password = 'Mascarilla2021$';
         $this->db = 'mission';
     }
 
