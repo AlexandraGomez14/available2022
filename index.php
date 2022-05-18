@@ -19,7 +19,7 @@
     font-size: 70px;
     width: 100%;
     color: red;">
-        &copy; Eres una perra
+        <!--&copy; Eres una perra-->
     </span>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
