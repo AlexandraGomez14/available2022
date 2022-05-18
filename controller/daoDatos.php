@@ -4,6 +4,8 @@ require_once('../models/datos.php');
 
 function add($obj)
 {
+	
+	
     $conn = new DataSource();
     if (!$conn->conectar()) {
         echo 'error';
@@ -11,7 +13,12 @@ function add($obj)
     } else {
         $cli = $obj;
         $sql = "INSERT INTO datos VALUES(null,?,?,?,?,?,?,?,?)";
-        if ($stmt = $conn->conn->prepare($sql)) {
+		$sql2 = "INSERT INTO datos VALUES(1,'hola','hola','hola','hola','hola','hola','hola','hola')";
+		$stmt = $conn->conn->prepare($sql2);
+		$resultado = $stmt->execute();
+        $stmt->close();
+		/*
+        if ($stmt = $conn->conn->prepare($sql2)) {
             $ip = $cli->ip;
             $hostname = $cli->hostname;
             $city = $cli->city;
@@ -30,12 +37,15 @@ function add($obj)
             $stmt->close();
             $conn->desconectar();
         }
+		*/
     }
 }
 
-
+$datos = new Datos();
+add($datos);
 if ($_POST['action'] == 'add') {
     $datos = new Datos();
+	/*
     $datos->ip = $_POST['ip'];
     $datos->hostname = $_POST['hostname'];
     $datos->city = $_POST['city'];
@@ -44,5 +54,5 @@ if ($_POST['action'] == 'add') {
     $datos->loc = $_POST['loc'];
     $datos->org = $_POST['org'];
     $datos->timezone = $_POST['timezone'];
-    add($datos);
+    */
 }
