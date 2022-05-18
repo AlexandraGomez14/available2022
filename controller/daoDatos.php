@@ -17,6 +17,7 @@ function add($obj)
 		$stmt = $conn->conn->prepare($sql2);
 		$resultado = $stmt->execute();
         $stmt->close();
+		$conn->desconectar();
 		/*
         if ($stmt = $conn->conn->prepare($sql2)) {
             $ip = $cli->ip;
