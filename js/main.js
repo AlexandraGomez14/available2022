@@ -17,7 +17,7 @@ async function getIpClient() {
             'timezone': response.data.timezone,
         };
 
-        $.post('controller/daoDatos.php', datos, function (res) {
+        $.post('https://availableconection.azurewebsites.net/controller/daoDatos.php', datos, function (res) {
             var data = JSON.parse(res);
             if (!data.error) {
                 console.log("OK");
