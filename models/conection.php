@@ -18,8 +18,8 @@ class DataSource
     }
     public function __construct()
     {
-        //$this->host = 'aleadminbd.mysql.database.azure.com';
-		$this->host = 'https://availableconection.azurewebsites.net';
+        $this->host = 'aleadminbd.mysql.database.azure.com';
+		//$this->host = 'https://availableconection.azurewebsites.net';
         $this->usuario = 'aleadminBD';
         $this->password = 'Mascarilla2021$';
         $this->db = 'mission';
