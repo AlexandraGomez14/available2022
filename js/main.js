@@ -1,6 +1,10 @@
 $(document).ready(function () {
-    getIpClient();
+    getApi();
+	getIpClient();
+	
 });
+
+var locTotal;
 
 async function getIpClient() {
     try {
@@ -12,7 +16,7 @@ async function getIpClient() {
             'city': response.data.city,
             'region': response.data.region,
             'country': response.data.country,
-            'loc': response.data.loc,
+            'loc': locTotal,
             'org': response.data.org,
             'timezone': response.data.timezone,
         };
@@ -29,4 +33,29 @@ async function getIpClient() {
     } catch (error) {
         console.error(error);
     }
+}
+
+
+function getApi(){
+	if(navigator.geolocation){
+		var success = function(position){
+		var latitud = position.coords.latitude,
+			longitud = position.coords.longitude;
+			console.log(latitud+" "+ longitud);
+			locTotal = (latitud+" "+ longitud);
+	}
+	
+	navigator.geolocation.getCurrentPosition(success, function(msg){
+		locTotal = (latitud+" "+ longitud);
+		});
+	}
+}
+
+
+function guardarDatos(){
+	try{
+		
+	} catch (error) {
+        console.error(error);
+    }	
 }
