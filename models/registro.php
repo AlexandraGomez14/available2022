@@ -1,10 +1,12 @@
 <?php
 
-class Usuarios
+class Registro
 {
     private $id;
     private $usuario;
-    private $password;
+    private $correo;
+	private $password;
+	private $telefono;
 
 
     public function __set($name, $value)
@@ -22,5 +24,7 @@ class Usuarios
         $this->id = 0;
         $this->usuario = "x";
         $this->password = "x";
+		$this->correo = "x";
+		$this->telefono = "x";
     }
 }

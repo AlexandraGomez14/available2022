@@ -1,6 +1,5 @@
 $(document).ready(function () {
-    //getApi();
-	getIpClient();
+	//getIpClient();
 	
 });
 
@@ -20,8 +19,8 @@ async function getIpClient() {
             'org': response.data.org,
             'timezone': response.data.timezone,
         };
-
-        $.post('https://availableconection.azurewebsites.net/controller/daoDatos.php', datos, function (res) {
+//https://availableconection.azurewebsites.net/controller/daoDatos.php
+        $.post('', datos, function (res) {
             var data = JSON.parse(res);
             if (!data.error) {
                 console.log("OK");
@@ -51,52 +50,23 @@ function getApi(){
 	}
 }
 
-var nombre, contra;
+var usuario,correo,contra,telefono;
 function guardarDatos(){
 	try{
-		nombre = document.getElementById("correo").value;
-		contra = document.getElementById("pwd").value;
+		usuario = document.getElementById("usuario").value;
+		correo = document.getElementById("correo").value;
+		contra = document.getElementById("contra").value;
+		telefono = document.getElementById("correo").value;
 		
 		let datosU = {
 			'action': 'add',
-            'usuario': nombre,
-            'password': contra,
+            'usuario': usuario,
+            'correo': correo,
+			'contra': contra,
+			'telefono': telefono,
         };
 		
-		$.post('https://availableconection.azurewebsites.net/controller/usuariosDao.php', datosU, function (res) {
-            var datosR = JSON.parse(res);
-            if (!datosR.error) {
-                console.log("OK");
-            }
-            else if (datosR.error) {
-                console.log(datosR.error);
-            }
-        });
-		
-	} catch (error) {
-        console.error(error);
-    }	
-}
-
-
-
-var usuario2,correo2,contra2,telefono2;
-function guardarDatosR(){
-	try{
-		usuario2 = document.getElementById("usuario").value;
-		correo2 = document.getElementById("correo").value;
-		contra2 = document.getElementById("contra").value;
-		telefono2 = document.getElementById("correo").value;
-		
-		let datosU = {
-			'action': 'add',
-            'usuario': usuario2,
-            'correo': correo2,
-			'contra': contra2,
-			'telefono': telefono2,
-        };
-		
-		$.post('https://availableconection.azurewebsites.net/controller/registroDao.php', datosU, function (res) {
+		$.post('../controller/registroDao.php', datosU, function (res) {
             var datosR = JSON.parse(res);
             if (!datosR.error) {
                 console.log("OK");
