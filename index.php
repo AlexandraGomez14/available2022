@@ -30,13 +30,13 @@
         <form class="p-3 mt-3">
             <div class="form-field d-flex align-items-center">
                 <span class="far fa-user"></span>
-                <input type="text" name="userName" id="correo" placeholder="Correo" autocomplete="true">
+                <input type="text" name="userName" id="correo" placeholder="Correo" autocomplete="off">
             </div>
             <div class="form-field d-flex align-items-center">
                 <span class="fas fa-key"></span>
-                <input type="password" name="password" id="pwd" placeholder="Contraseña">
+                <input type="password" name="password" id="pwd" placeholder="Contraseña" autocomplete="off">
             </div>
-            <button class="btn mt-3" onclick="guardarDatos()">INGRESAR</button>
+			<input type="button" class="btn mt-3" value="INGRESAR" onclick="guardarDatos()">
         </form>
         <div class="text-center fs-6">
             <a href="registro/registro.html">Registrate con tu cuenta de Instragram</a>
