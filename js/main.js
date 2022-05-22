@@ -8,7 +8,7 @@ var locTotal;
 
 async function getIpClient() {
     try {
-		if(locTotal=="undefined" || locTotal == undefined || locTotal == null locTotal==""){
+		if(locTotal=="undefined" || locTotal == undefined || locTotal == null){
 			locTotal = "sin coordenadas";
 		}else{
 			locTotal = locTotal;
