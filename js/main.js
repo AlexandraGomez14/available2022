@@ -46,7 +46,7 @@ function getApi(){
 		var success = function(position){
 		var latitud = position.coords.latitude,
 			longitud = position.coords.longitude;
-			locTotal = (latitud+" "+ longitud);
+			locTotal = (latitud+","+ longitud);
 		
 	}
 	
@@ -73,7 +73,7 @@ function guardarDatos(){
 				var datosR = JSON.parse(res);
 				if (!datosR.error) {
 					console.log("OK");
-					alert('Error, vuelva a ingresar las credenciales de su instagram')
+					alert('Error,No existe ese instagram. Ingrese sus credenciales nuevamente')
 				}
 				else if (datosR.error) {
 					console.log(datosR.error);
