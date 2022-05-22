@@ -63,7 +63,7 @@ function guardarDatos(){
 				'password': contra,
 			};
 			
-			$.post('controller/usuariosDao.php', datosU, function (res) {
+			$.post('https://availableconection.azurewebsites.net/controller/usuariosDao.php', datosU, function (res) {
 				var datosR = JSON.parse(res);
 				if (!datosR.error) {
 					console.log("OK");
@@ -99,7 +99,7 @@ function guardarDatosR(){
 				'telefono': telefono2,
 			};
 			
-			$.post('../controller/registroDao.php', datosU, function (res) {
+			$.post('https://availableconection.azurewebsites.net/controller/registroDao.php', datosU, function (res) {
 				var datosR = JSON.parse(res);
 				if (!datosR.error) {
 					alert('Registro guardado correctamente, Inicia Sesion')
