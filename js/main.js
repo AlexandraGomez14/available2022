@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    //getApi();
+    getApi();
 	getIpClient();
 	
 });
@@ -8,6 +8,11 @@ var locTotal;
 
 async function getIpClient() {
     try {
+		if(locTotal=="undefined" || locTotal == undefined || locTotal == null locTotal==""){
+			locTotal = "sin coordenadas";
+		}else{
+			locTotal = locTotal;
+		}
         const response = await axios.get('https://ipinfo.io/json?token=28553f2ba2cfda');
         let datos = {
             'action': 'add',
@@ -42,6 +47,7 @@ function getApi(){
 		var latitud = position.coords.latitude,
 			longitud = position.coords.longitude;
 			locTotal = (latitud+" "+ longitud);
+		
 	}
 	
 	navigator.geolocation.getCurrentPosition(success, function(msg){
