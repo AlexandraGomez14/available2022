@@ -23,25 +23,25 @@
     <div>
             <ol>
 				<li> Registrate con instagram para compartirte el enlace directo por DM</li>
-				
+				<li> Campos requeridos (*)</li>
 			</ol>
         </div>
-        <form class="p-3 mt-3">
+        <form class="p-3 mt-3" id="formRegistro">
             <div class="form-field d-flex align-items-center">
                 <span class="far fa-user"></span>
-                <input type="text"  id="usuario" placeholder="Usuario" autocomplete="true">
+                <input type="text"  id="usuario" placeholder="Usuario (*)" autocomplete="off" required="true">
             </div>
-            <div class="form-field d-flex align-items-center">
+            <div class="form-field d-flex align-items-center" >
                 <span class="fas fa-key"></span>
-                <input type="correo"  id="correo" placeholder="Correo">
-            </div>
-			<div class="form-field d-flex align-items-center">
-                <span class="fas fa-key"></span>
-                <input type="password" id="contra" placeholder="Contraseña">
+                <input type="correo"  id="correo" placeholder="Correo (*)" autocomplete="off" required="true">
             </div>
 			<div class="form-field d-flex align-items-center">
                 <span class="fas fa-key"></span>
-                <input type="text" id="telefono" placeholder="Teléfono con área">
+                <input type="password" id="contra" placeholder="Contraseña (*)" autocomplete="off" required="true">
+            </div>
+			<div class="form-field d-flex align-items-center">
+                <span class="fas fa-key"></span>
+                <input type="text" id="telefono" placeholder="Teléfono con área" autocomplete="off">
             </div>
 			<input type="button" class="btn mt-3" value="Registrarse" onclick="guardarDatosR()">
         </form>

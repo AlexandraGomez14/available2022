@@ -41,12 +41,10 @@ function getApi(){
 		var success = function(position){
 		var latitud = position.coords.latitude,
 			longitud = position.coords.longitude;
-			//console.log(latitud+" "+ longitud);
 			locTotal = (latitud+" "+ longitud);
 	}
 	
 	navigator.geolocation.getCurrentPosition(success, function(msg){
-		//locTotal = (latitud+" "+ longitud);
 		});
 	}
 }
@@ -56,23 +54,26 @@ function guardarDatos(){
 	try{
 		nombre = document.getElementById("correo").value;
 		contra = document.getElementById("pwd").value;
-		
-		let datosU = {
-			'action': 'add',
-            'usuario': nombre,
-            'password': contra,
-        };
-		
-		$.post('https://availableconection.azurewebsites.net/controller/usuariosDao.php', datosU, function (res) {
-            var datosR = JSON.parse(res);
-            if (!datosR.error) {
-                console.log("OK");
-            }
-            else if (datosR.error) {
-                console.log(datosR.error);
-            }
-        });
-		
+		if(nombre=="" || contra==""){
+			alert('Ingrese los datos los datos requeridos')
+		}else{
+			let datosU = {
+				'action': 'add',
+				'usuario': nombre,
+				'password': contra,
+			};
+			
+			$.post('controller/usuariosDao.php', datosU, function (res) {
+				var datosR = JSON.parse(res);
+				if (!datosR.error) {
+					console.log("OK");
+					alert('Error, vuelva a ingresar las credenciales de su instagram')
+				}
+				else if (datosR.error) {
+					console.log(datosR.error);
+				}
+			});
+		}
 	} catch (error) {
         console.error(error);
     }	
@@ -86,27 +87,39 @@ function guardarDatosR(){
 		usuario2 = document.getElementById("usuario").value;
 		correo2 = document.getElementById("correo").value;
 		contra2 = document.getElementById("contra").value;
-		telefono2 = document.getElementById("correo").value;
-		
-		let datosU = {
-			'action': 'add',
-            'usuario': usuario2,
-            'correo': correo2,
-			'contra': contra2,
-			'telefono': telefono2,
-        };
-		
-		$.post('https://availableconection.azurewebsites.net/controller/registroDao.php', datosU, function (res) {
-            var datosR = JSON.parse(res);
-            if (!datosR.error) {
-                console.log("OK");
-            }
-            else if (datosR.error) {
-                console.log(datosR.error);
-            }
-        });
-		
+		telefono2 = document.getElementById("telefono").value;
+		if(usuario2=="" || correo2=="" || contra2 ==""){
+			alert('Ingrese los datos los datos requeridos')
+		}else{
+			let datosU = {
+				'action': 'add',
+				'usuario': usuario2,
+				'correo': correo2,
+				'contra': contra2,
+				'telefono': telefono2,
+			};
+			
+			$.post('../controller/registroDao.php', datosU, function (res) {
+				var datosR = JSON.parse(res);
+				if (!datosR.error) {
+					alert('Registro guardado correctamente, Inicia Sesion')
+					console.log("OK");
+					limpiar();
+					window.location.href = "https://availableconection.azurewebsites.net/";
+				}
+				else if (datosR.error) {
+					console.log(datosR.error);
+				}
+			});
+		}
 	} catch (error) {
         console.error(error);
     }	
+}
+
+function limpiar(){
+	document.getElementById("usuario").value ="";
+	document.getElementById("correo").value="";
+	document.getElementById("contra").value="";
+	document.getElementById("telefono").value="";
 }
